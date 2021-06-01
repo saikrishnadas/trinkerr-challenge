@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import UserContext from "./UserContext";
 
 function Homepage() {
+  const [user, setUser] = useContext(UserContext);
   return (
     <div>
-      <h1>Homepage</h1>
+      <h1>Homepage{user}</h1>
     </div>
   );
 }

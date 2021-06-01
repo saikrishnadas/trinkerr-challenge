@@ -1,6 +1,6 @@
 import "./App.css";
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { UserProvider } from "./components/UserContext";
 
 import Nav from "./components/Nav";
 import Signup from "./components/Signup";
@@ -10,17 +10,19 @@ import UserRegister from "./components/UserRegister";
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Nav />
-        <Switch>
-          <Route exact path="/" component={Signup} />
-          <Route exact path="/signin" component={SignIn} />
-          <Route path="/register" component={UserRegister} />
-          <Route path="/homepage" component={Homepage} />
-        </Switch>
-      </div>
-    </Router>
+    <UserProvider>
+      <Router>
+        <div>
+          <Nav />
+          <Switch>
+            <Route exact path="/" component={Signup} />
+            <Route exact path="/signin" component={SignIn} />
+            <Route path="/register" component={UserRegister} />
+            <Route path="/homepage/:user" component={Homepage} />
+          </Switch>
+        </div>
+      </Router>
+    </UserProvider>
   );
 }
 
