@@ -1,17 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import UserContext from "./UserContext";
 
 function Nav() {
-  const [user, setUser] = useContext(UserContext);
-
   return (
     <nav className="bg-bgmain p-5">
-      {user.length > 0 ? (
+      {localStorage.user.length > 0 ? (
         <div className="flex text-white">
           <Link to="/">
             <button
-              onClick={() => setUser("")}
+              onClick={() => localStorage.setItem("user", "")}
               className="w-20 mr-5 border-2 border-gray-300 p-1.5 rounded-lg shadow-md hover:bg-gray-400 focus:outline-none"
             >
               Logout

@@ -7,6 +7,8 @@ function UserRegister() {
 
   const handleUser = (e) => {
     setUser(e.target.value);
+    let currentUser = e.target.value;
+    localStorage.setItem("user", currentUser);
   };
 
   return (

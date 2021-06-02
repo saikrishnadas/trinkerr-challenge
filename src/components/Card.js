@@ -1,10 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import TinderCard from "react-tinder-card";
-import UserContext from "./UserContext";
+
 import { XCircleIcon, CheckCircleIcon } from "@heroicons/react/solid";
 
 function Card() {
-  const [user] = useContext(UserContext);
   const [names] = useState([
     {
       imgname: "Icon3",
@@ -69,7 +68,7 @@ function Card() {
         <>
           {count > 4 && (
             <h1 className="text-center font-semibold text-lg">
-              {user}, You have rated all the images. Thank You 😄
+              {localStorage.user}, You have rated all the images. Thank You 😄
             </h1>
           )}
           <div className="mt-120 lg:mt-10">
@@ -77,14 +76,14 @@ function Card() {
               <div className="ml-32 flex items-center lg:ml-16">
                 <XCircleIcon className="text-red-700 w-10 h-10 mr-3" />
                 <h1 className="text-lg font-semibold">
-                  {user}, you have rejected {imgName}
+                  {localStorage.user}, you have rejected {imgName}
                 </h1>
               </div>
             ) : (
               <div className="ml-32 flex items-center lg:ml-200">
                 <CheckCircleIcon className="text-green-500 w-10 h-10 mr-3" />
                 <h1 className="text-lg font-semibold">
-                  {user}, you have interest in {imgName}
+                  {localStorage.user}, you have interest in {imgName}
                 </h1>
               </div>
             )}
