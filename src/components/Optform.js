@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Optform() {
+  const [otp, setOtp] = useState("");
+
   return (
     <div className="flex justify-center h-screen bg-bgmain font-sans">
       <form className="flex flex-col justify-center mb-20">
@@ -9,12 +11,32 @@ function Optform() {
           Signup
         </h1>
         <label className="text-white text-lg mb-3 text-center">Enter OTP</label>
-        <input placeholder="0000" className="p-2 rounded" />
-        <Link to="/register">
-          <button className="bg-white text-bgmain p-2 rounded mt-5 w-full">
-            Submit
-          </button>
-        </Link>
+        <input
+          type="text"
+          value={otp}
+          name="otp"
+          placeholder="0000"
+          className="p-2 rounded"
+          onChange={(e) => setOtp(e.target.value)}
+        />
+        {otp === "0000" ? (
+          <Link to="/register">
+            <button className="bg-white text-bgmain p-2 rounded mt-5 w-full">
+              Submit
+            </button>
+          </Link>
+        ) : (
+          <div>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+              className="bg-white text-bgmain p-2 rounded mt-3 w-full"
+            >
+              Submit
+            </button>
+          </div>
+        )}
       </form>
     </div>
   );

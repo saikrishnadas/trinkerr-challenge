@@ -1,11 +1,15 @@
 import React, { useContext } from "react";
+import Card from "./Card";
 import UserContext from "./UserContext";
 
 function Homepage() {
-  const [user, setUser] = useContext(UserContext);
+  const [user] = useContext(UserContext);
+
   return (
-    <div>
-      <h1>Homepage{user}</h1>
+    <div className="bg-bgmain h-screen pl-5">
+      <h1 className="text-white text-2xl font-bold">Welcome {user}</h1>
+
+      <Card />
     </div>
   );
 }
