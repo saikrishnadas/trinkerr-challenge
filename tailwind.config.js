@@ -8,7 +8,7 @@ module.exports = {
       },
       margin: {
         120: "27rem",
-        200: "60rem",
+        200: "68rem",
       },
     },
   },
