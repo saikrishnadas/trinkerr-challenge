@@ -6,8 +6,8 @@ function Homepage() {
   const [user] = useContext(UserContext);
 
   return (
-    <div className="bg-bgmain h-screen pl-5">
-      <h1 className="text-white text-2xl font-bold">Welcome {user}</h1>
+    <div className="bg-gray-300 h-screen pl-5">
+      <h1 className="text-2xl font-bold pt-2">Welcome {user} 😉</h1>
 
       <Card />
     </div>

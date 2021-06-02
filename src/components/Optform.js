@@ -6,22 +6,20 @@ function Optform() {
 
   return (
     <div className="flex justify-center h-screen bg-bgmain font-sans">
-      <form className="flex flex-col justify-center mb-20">
-        <h1 className="text-white text-center text-3xl font-bold pb-4">
-          Signup
-        </h1>
+      <form className="flex flex-col mt-20">
+        <h1 className="text-white text-4xl text-center mb-12">Signup</h1>
         <label className="text-white text-lg mb-3 text-center">Enter OTP</label>
         <input
           type="text"
           value={otp}
           name="otp"
           placeholder="0000"
-          className="p-2 rounded"
+          className="p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           onChange={(e) => setOtp(e.target.value)}
         />
         {otp === "0000" ? (
           <Link to="/register">
-            <button className="bg-white text-bgmain p-2 rounded mt-5 w-full">
+            <button className="bg-white text-bgmain p-2 mt-5 rounded-lg shadow-md hover:bg-gray-200 focus:outline-none w-full">
               Submit
             </button>
           </Link>
@@ -31,7 +29,7 @@ function Optform() {
               onClick={(e) => {
                 e.preventDefault();
               }}
-              className="bg-white text-bgmain p-2 rounded mt-3 w-full"
+              className="bg-white text-bgmain p-2 mt-5 rounded-lg shadow-md hover:bg-gray-200 focus:outline-none w-full"
             >
               Submit
             </button>
