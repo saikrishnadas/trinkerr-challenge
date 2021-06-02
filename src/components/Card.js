@@ -1,28 +1,29 @@
 import React, { useState, useContext } from "react";
 import TinderCard from "react-tinder-card";
 import UserContext from "./UserContext";
+import { XCircleIcon, CheckCircleIcon } from "@heroicons/react/solid";
 
 function Card() {
   const [user] = useContext(UserContext);
   const [names] = useState([
     {
-      imgname: "icon3",
+      imgname: "Icon3",
       url: "https://post.greatist.com/wp-content/uploads/2020/09/health-benefits-of-apples-732x549-thumbnail-732x549.jpg",
     },
     {
-      imgname: "icon9",
+      imgname: "Icon9",
       url: "https://elsahngreens.com/wp-content/uploads/2020/07/orange.jpg",
     },
     {
-      imgname: "icon19",
+      imgname: "Icon19",
       url: "https://agfstorage.blob.core.windows.net/misc/FP_com/2020/01/24/Aman.jpg",
     },
     {
-      imgname: "icon18",
+      imgname: "Icon18",
       url: "https://static.toiimg.com/photo/msid-68374658/68374658.jpg?2359844",
     },
     {
-      imgname: "icon17",
+      imgname: "Icon17",
       url: "https://cdn-prod.medicalnewstoday.com/content/images/articles/271/271232/chopped-kiwi-in-a-bowl-on-a-table.jpg",
     },
   ]);
@@ -65,22 +66,30 @@ function Card() {
         ))}
       </div>
       {start && (
-        <div>
-          {swipe === "left" ? (
-            <h1 className="text-white text-lg">
-              {user}, you have rejected {imgName}
-            </h1>
-          ) : (
-            <h1 className="text-white text-lg text-right pr-5">
-              {user}, you have interest in {imgName}
+        <>
+          {count > 4 && (
+            <h1 className="text-center font-semibold text-lg">
+              {user}, You have rated all the images. Thank You 😄
             </h1>
           )}
-        </div>
-      )}
-      {count === 5 && (
-        <h1 className="text-center mt-20 text-white font-bold text-xl">
-          {user}, You have rated all the images. Thank You
-        </h1>
+          <div className="mt-120 lg:mt-10">
+            {swipe === "left" ? (
+              <div className="ml-32 flex items-center lg:ml-16">
+                <XCircleIcon className="text-red-700 w-10 h-10 mr-3" />
+                <h1 className="text-lg font-semibold">
+                  {user}, you have rejected {imgName}
+                </h1>
+              </div>
+            ) : (
+              <div className="ml-32 flex items-center lg:ml-200">
+                <CheckCircleIcon className="text-green-500 w-10 h-10 mr-3" />
+                <h1 className="text-lg font-semibold">
+                  {user}, you have interest in {imgName}
+                </h1>
+              </div>
+            )}
+          </div>
+        </>
       )}
     </div>
   );

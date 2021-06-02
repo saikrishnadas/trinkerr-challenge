@@ -6,6 +6,10 @@ module.exports = {
       colors: {
         bgmain: "#50a3a2",
       },
+      margin: {
+        120: "27rem",
+        200: "60rem",
+      },
     },
   },
   variants: {

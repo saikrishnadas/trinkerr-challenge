@@ -6,7 +6,7 @@ function Optform() {
 
   return (
     <div className="flex justify-center h-screen bg-bgmain font-sans">
-      <form className="flex flex-col mt-20">
+      <form className="flex flex-col mt-20" autocomplete="false">
         <h1 className="text-white text-4xl text-center mb-12">Signup</h1>
         <label className="text-white text-lg mb-3 text-center">Enter OTP</label>
         <input

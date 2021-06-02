@@ -5,6 +5,10 @@ import UserContext from "./UserContext";
 function UserRegister() {
   const [user, setUser] = useContext(UserContext);
 
+  const handleUser = (e) => {
+    setUser(e.target.value);
+  };
+
   return (
     <div className="flex justify-center h-screen bg-bgmain font-sans">
       <form className="flex flex-col mt-20">
@@ -15,8 +19,9 @@ function UserRegister() {
         <input
           type="text"
           name="user"
+          autocomplete="false"
           value={user}
-          onChange={(e) => setUser(e.target.value)}
+          onChange={handleUser}
           placeholder="Name"
           className="p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
